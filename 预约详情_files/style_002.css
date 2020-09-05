@@ -1,0 +1,99 @@
+.bh-footer-content {
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  margin: 0 auto;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+.container {
+  padding: 8px;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background: #E5E8F1;
+  margin: 0 auto;
+}
+
+.page {
+  height: 100%;
+  padding: 16px;
+  background: white;
+  border-radius: 4px;
+  box-sizing: border-box;
+
+}
+
+h2 {
+  margin-bottom: 20px
+}
+
+.left {
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 30px;
+  margin: 20px 0;
+}
+
+.logo {
+  height: 50px;
+}
+
+.link-text a {
+  text-decoration: none;
+}
+
+.link-text .ivu-menu-item a {
+  color: inherit;
+}
+
+.link-text .ivu-menu-item.ivu-menu-item-active a {
+  color: #20a0ff;
+}
+
+.mv-8 {
+  margin: 8px 0;
+}
+
+.opearte-btn-wrap {
+  margin-bottom: 20px;
+}
+
+.page-wrap {
+  margin-top: 12px;
+}
+
+.vertical-center-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vertical-center-modal .ivu-modal {
+  top: 0;
+}
+  .header-wrap {
+    position: relative;
+  }
+
+  .login-wrap {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 60px;
+    color: #fff;
+  }
+
+  .login-wrap .separator {
+    margin: 0 8px;
+  }
+  
+  .login-wrap .ivu-menu-item>i{
+    font-size: 18px;
+  }
