@@ -66,6 +66,12 @@
 	window.APP_CONFIG = {
 		APP_VERSION : "1599188300622"
 	};
+	Array.prototype.range = function ( start,end ){
+    var _self = this;
+    var length = end - start +1;
+    var step = start - 1;
+    return Array.apply(null,{length:length}).map(function (v,i){step++;return step;});
+};
 	function goapp(){
 		var app = document.getElementById("app");
 		var MY = document.getElementById("MY");
@@ -82,9 +88,14 @@
 		var dis_number = document.getElementById("DIS_number")
 		dis_number.innerHTML = number
 
-		var date = document.getElementById("MY_date").value
+		var month = document.getElementById("MY_month").value
+		var day = document.getElementById("MY_day").value
 		var time = document.getElementById("MY_time").value
 
+		var dis_begin = document.getElementById("DIS_begin")
+		var dis_end = document.getElementById("DIS_end")
+		dis_begin.innerHTML = "2020-"+month+"-"+day+"\ "+time.slice(0, 5)
+		dis_end.innerHTML = "2020-"+month+"-"+day+"\ "+time.slice(6, 11)
 
 	};
 </script>
@@ -124,16 +135,15 @@
 </svg>
 <script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="basicComponents/auditprocess/auditProcess" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/auditProcess.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="basicComponents/nonedatas/nonedatas" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/nonedatas.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="basicComponents/emapflowview/emapflowview" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/emapflowview.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="basicComponents/rateCouple/rateCouple" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/rateCouple.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="publicVueComponent/multimodel/multimodel" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/multimodel.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="publicVueComponent/baseSelectFooter/baseSelectFooter" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/baseSelectFooter.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="publicVueComponent/bsTransitionPage/bsTransitionPage" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/bsTransitionPage.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="publicVueComponent/baseSelect/baseSelect" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/baseSelect.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="publicVueComponent/chooseperson/chooseperson" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/chooseperson.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="BH_MOBILE" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/BH_MIXIN_SDK.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="text" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/text.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="selectRolePage" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/selectrole.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="mobile/myAppointment/myAppointment" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/myAppointment.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="mobile/myAppointment/detail/listdetail" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/listdetail.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="mobile/myAppointment/detail/orderdetail" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/orderdetail.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="mobile/myAppointment/detail/checkin" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/checkin.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="api" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/api.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="jquery.qrcode.min" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/jquery.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="appConfig" src="%E9%A2%84%E7%BA%A6%E8%AF%A6%E6%83%85_files/appConfig.js"></script><title>预约详情</title></head>
 	<body data-gr-c-s-loaded="true">
-	<div id="MY">
-		<input id="MY_number"/></br>
-		<select id="MY_gender">
+	<div id="MY"  style="align-content: center;">
+		学号  <input id="MY_number"/></br>
+		性别  <select id="MY_gender">
 			<option value="鼓楼男浴室">男</option>
 			<option value="鼓楼女浴室">女</option>
 		</select><br/>
-		<input id="MY_start"/><br/>
-		<input id="MY_end"/><br/>
-		<input id="MY_month"/><input id="MY_day"/><br/>
-		<select id="MY_time">
+		月份(两位数)  <input id="MY_month"/><br/>
+		日期(两位数)  <input id="MY_day"/><br/>
+		预约时间<select id="MY_time">
 		  <option value ="13:00-13:40">13:00-13:40</option>
 		  <option value ="13:40-14:20">13:40-13:20</option>
 		  <option value="14:20-15:00">14:20-15:00</option>
